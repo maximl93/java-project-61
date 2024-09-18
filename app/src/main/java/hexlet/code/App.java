@@ -3,7 +3,8 @@ package hexlet.code;
 import java.util.Scanner;
 
 import static hexlet.code.Cli.greeting;
-import static hexlet.code.EvenGame.evenGameStart;
+import static hexlet.code.games.EvenGame.evenGameStart;
+import static hexlet.code.games.CalcGame.calcGameStart;
 
 public class App {
     public static void main(String[] args) {
@@ -13,6 +14,7 @@ public class App {
         System.out.print("Please enter the game number and press Enter\n"
                             + "1 - Greet\n"
                             + "2 - Even\n"
+                            + "3 - Calc\n"
                             + "0 - Exit\n"
                             + "Your choice: ");
         playerChoice = scanner.nextInt();
@@ -25,6 +27,10 @@ public class App {
             case 2:
                 System.out.println("\nWelcome to the Brain Games!");
                 evenGameStart();
+                break;
+            case 3:
+                System.out.println("\nWelcome to the Brain Games!");
+                calcGameStart();
                 break;
             default:
                 break;
