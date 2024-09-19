@@ -10,3 +10,6 @@ https://asciinema.org/a/pkQiAP1RNjZm7QFPkffy9CTTO
 
 Демонстрация работы игры "Наибольший общий делитель (НОД)".
 https://asciinema.org/a/4XShQR9krofhNpa0oyQxuKDnH
+
+Демонстрация работы игры "Арифметическая прогрессия".
+https://asciinema.org/a/OWlIO6NAQM0lujQAlEIQmeish
