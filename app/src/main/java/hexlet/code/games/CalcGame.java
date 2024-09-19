@@ -13,6 +13,7 @@ public class CalcGame {
     private static int operand1;
     private static int operand2;
     private static String operator;
+    private static final int BOUND_TO_CREATE_OPERATOR = 4;
 
     public static void calcGameStart() {
         greeting();
@@ -28,14 +29,12 @@ public class CalcGame {
 
     private static String generateOperator() {
         Random random = new Random();
-        var randomOperator = random.nextInt(1, 4);
+        var randomOperator = random.nextInt(1, BOUND_TO_CREATE_OPERATOR);
         switch (randomOperator) {
             case 1:
                 return "+";
             case 2:
                 return "-";
-            case 3:
-                return "*";
             default:
                 return "";
         }
