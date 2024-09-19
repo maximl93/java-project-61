@@ -2,7 +2,8 @@ package hexlet.code.games;
 
 import static hexlet.code.Engine.greeting;
 import static hexlet.code.Engine.gameRounds;
-import static hexlet.code.Engine.countCorrectAnswers;
+import static hexlet.code.Engine.getCountCorrectAnswers;
+import static hexlet.code.Engine.ROUNDS_NEED_TO_WIN;
 import static hexlet.code.Engine.generateRandomNumber;
 
 public class GcdGame {
@@ -17,7 +18,7 @@ public class GcdGame {
     }
 
     public static void  gcdGameLogic() {
-        while (countCorrectAnswers < 3) {
+        while (getCountCorrectAnswers() < ROUNDS_NEED_TO_WIN) {
             gameRounds(generateQuestion(), rightAnswer());
         }
     }
@@ -25,13 +26,10 @@ public class GcdGame {
     public static String generateQuestion() {
         number1 = generateRandomNumber();
         number2 = generateRandomNumber();
-        return (number1 * 5) + " " + (number2 * 5);
+        return (number1) + " " + (number2);
     }
 
     public static String rightAnswer() {
-        number1 = number1 * 5;
-        number2 = number2 * 5;
-
         while (number1 != number2) {
             if (number1 > number2) {
                 number1 = number1 - number2;

@@ -4,7 +4,8 @@ import java.util.Random;
 
 import static hexlet.code.Engine.greeting;
 import static hexlet.code.Engine.gameRounds;
-import static hexlet.code.Engine.countCorrectAnswers;
+import static hexlet.code.Engine.getCountCorrectAnswers;
+import static hexlet.code.Engine.ROUNDS_NEED_TO_WIN;
 import static hexlet.code.Engine.generateRandomNumber;
 
 public class CalcGame {
@@ -20,7 +21,7 @@ public class CalcGame {
     }
 
     private static void calcGameLogic() {
-        while (countCorrectAnswers < 3) {
+        while (getCountCorrectAnswers() < ROUNDS_NEED_TO_WIN) {
             gameRounds(generateQuestion(), rightAnswer());
         }
     }

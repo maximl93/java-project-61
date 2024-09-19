@@ -5,9 +5,11 @@ import java.util.Scanner;
 
 public class Engine {
 
-    public static String playerName;
-    public static String playerAnswer;
-    public static int countCorrectAnswers = 0;
+    private static String playerName;
+    private static String playerAnswer;
+    private static int countCorrectAnswers = 0;
+    public static final int ROUNDS_NEED_TO_WIN = 3;
+    public static final int BOUND_TO_GENERATE_NUMBERS = 21;
 
     public static void greeting() {
         Scanner scanner = new Scanner(System.in);
@@ -19,7 +21,7 @@ public class Engine {
 
     public static int generateRandomNumber() {
         Random random = new Random();
-        return random.nextInt(1, 21);
+        return random.nextInt(1, BOUND_TO_GENERATE_NUMBERS);
     }
 
     public static boolean isCorrectAnswer(String rightAnswer) {
@@ -27,7 +29,7 @@ public class Engine {
     }
 
     public static void playerWonMessage() {
-        if (countCorrectAnswers == 3) {
+        if (countCorrectAnswers == ROUNDS_NEED_TO_WIN) {
             System.out.println("Congratulations, " + playerName + "!");
         }
     }
@@ -44,8 +46,20 @@ public class Engine {
             System.out.println("'" + playerAnswer + "' is wrong answer ;(. "
                     + "Correct answer was '" + rightAnswer + "'."
                     + "\nLet's try again, " + playerName + "!");
-            countCorrectAnswers = 10;
+            countCorrectAnswers = ROUNDS_NEED_TO_WIN + 1;
         }
         playerWonMessage();
+    }
+
+    public static String getPlayerName() {
+        return playerName;
+    }
+
+    public static String getPlayerAnswer() {
+        return playerAnswer;
+    }
+
+    public static int getCountCorrectAnswers() {
+        return countCorrectAnswers;
     }
 }

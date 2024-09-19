@@ -4,7 +4,8 @@ import java.util.Random;
 
 import static hexlet.code.Engine.greeting;
 import static hexlet.code.Engine.gameRounds;
-import static hexlet.code.Engine.countCorrectAnswers;
+import static hexlet.code.Engine.getCountCorrectAnswers;
+import static hexlet.code.Engine.ROUNDS_NEED_TO_WIN;
 import static hexlet.code.Engine.generateRandomNumber;
 
 public class ProgressionGame {
@@ -21,7 +22,7 @@ public class ProgressionGame {
     }
 
     private static void progressionGameLogic() {
-        while (countCorrectAnswers < 3) {
+        while (getCountCorrectAnswers() < ROUNDS_NEED_TO_WIN) {
             gameRounds(generateQuestion(), rightAnswer());
         }
     }
@@ -30,7 +31,7 @@ public class ProgressionGame {
         Random random = new Random();
         var progressionNumber = generateRandomNumber();
         gap = generateRandomNumber();
-        missingNumberPosition = random.nextInt(1, 10);
+        missingNumberPosition = random.nextInt(1, SIZE_OF_PROGRESSION);
         StringBuilder question = new StringBuilder();
         for (int i = 0; i < SIZE_OF_PROGRESSION; i++) {
             if (i == missingNumberPosition) {

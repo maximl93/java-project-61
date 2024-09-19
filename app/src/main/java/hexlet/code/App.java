@@ -12,7 +12,7 @@ import static hexlet.code.games.ProgressionGame.progressionGameStart;
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int playerChoice;
+        String playerChoice;
 
         System.out.print("Please enter the game number and press Enter\n"
                             + "1 - Greet\n"
@@ -23,25 +23,25 @@ public class App {
                             + "6 - Prime\n"
                             + "0 - Exit\n"
                             + "Your choice: ");
-        playerChoice = scanner.nextInt();
+        playerChoice = scanner.nextLine();
 
         switch (playerChoice) {
-            case 1:
+            case "1":
                 greeting();
                 break;
-            case 2:
+            case "2":
                 evenGameStart();
                 break;
-            case 3:
+            case "3":
                 calcGameStart();
                 break;
-            case 4:
+            case "4":
                 nodGameStart();
                 break;
-            case 5:
+            case "5":
                 progressionGameStart();
                 break;
-            case 6:
+            case "6":
                 primeGameStart();
                 break;
             default:
