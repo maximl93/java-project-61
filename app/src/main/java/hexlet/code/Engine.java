@@ -11,30 +11,41 @@ public class Engine {
 
     public static void greeting() {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("May I have your name? ");
+        System.out.print("\nWelcome to the Brain Games!"
+                            + "\nMay I have your name? ");
         playerName = scanner.nextLine();
         System.out.println("Hello, " + playerName);
     }
 
     public static int generateRandomNumber() {
         Random random = new Random();
-        return random.nextInt(1, 20);
+        return random.nextInt(1, 21);
     }
 
     public static boolean isCorrectAnswer(String rightAnswer, String playerAnswer) {
         return rightAnswer.equals(playerAnswer);
     }
 
-    public static void gameRound(String generatedQuestion) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Question: " + generatedQuestion);
-        System.out.print("Your answer: ");
-        playerAnswer = scanner.nextLine();
-    }
-
     public static void playerWonMessage() {
         if (countCorrectAnswers == 3) {
             System.out.println("Congratulations, " + playerName + "!");
         }
+    }
+
+    public static void gameRounds(String generatedQuestion, String rightAnswer) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Question: " + generatedQuestion);
+        System.out.print("Your answer: ");
+        playerAnswer = scanner.nextLine();
+        if (isCorrectAnswer(rightAnswer, playerAnswer)) {
+            System.out.println("Correct!");
+            countCorrectAnswers++;
+        } else {
+            System.out.println("'" + playerAnswer + "' is wrong answer ;(. "
+                    + "Correct answer was '" + rightAnswer + "'."
+                    + "\nLet's try again, " + playerName + "!");
+            countCorrectAnswers = 10;
+        }
+        playerWonMessage();
     }
 }
