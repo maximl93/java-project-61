@@ -22,7 +22,7 @@ public class Engine {
         return random.nextInt(1, 21);
     }
 
-    public static boolean isCorrectAnswer(String rightAnswer, String playerAnswer) {
+    public static boolean isCorrectAnswer(String rightAnswer) {
         return rightAnswer.equals(playerAnswer);
     }
 
@@ -37,7 +37,7 @@ public class Engine {
         System.out.println("Question: " + generatedQuestion);
         System.out.print("Your answer: ");
         playerAnswer = scanner.nextLine();
-        if (isCorrectAnswer(rightAnswer, playerAnswer)) {
+        if (isCorrectAnswer(rightAnswer)) {
             System.out.println("Correct!");
             countCorrectAnswers++;
         } else {

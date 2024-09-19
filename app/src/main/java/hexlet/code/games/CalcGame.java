@@ -1,9 +1,11 @@
 package hexlet.code.games;
 
 import java.util.Random;
-import java.util.Scanner;
 
-import static hexlet.code.Engine.*;
+import static hexlet.code.Engine.greeting;
+import static hexlet.code.Engine.gameRounds;
+import static hexlet.code.Engine.countCorrectAnswers;
+import static hexlet.code.Engine.generateRandomNumber;
 
 public class CalcGame {
 
