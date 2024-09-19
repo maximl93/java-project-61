@@ -6,6 +6,7 @@ import static hexlet.code.Engine.greeting;
 import static hexlet.code.games.EvenGame.evenGameStart;
 import static hexlet.code.games.CalcGame.calcGameStart;
 import static hexlet.code.games.GcdGame.nodGameStart;
+import static hexlet.code.games.ProgressionGame.progressionGameStart;
 
 public class App {
     public static void main(String[] args) {
@@ -17,6 +18,7 @@ public class App {
                             + "2 - Even\n"
                             + "3 - Calc\n"
                             + "4 - GCD\n"
+                            + "5 - Progression\n"
                             + "0 - Exit\n"
                             + "Your choice: ");
         playerChoice = scanner.nextInt();
@@ -33,6 +35,9 @@ public class App {
                 break;
             case 4:
                 nodGameStart();
+                break;
+            case 5:
+                progressionGameStart();
                 break;
             default:
                 break;
