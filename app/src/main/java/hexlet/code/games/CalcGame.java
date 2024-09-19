@@ -36,7 +36,7 @@ public class CalcGame {
             case 2:
                 return "-";
             default:
-                return "";
+                return "*";
         }
     }
 
