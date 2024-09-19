@@ -14,7 +14,7 @@ public class Engine {
         System.out.print("\nWelcome to the Brain Games!"
                             + "\nMay I have your name? ");
         playerName = scanner.nextLine();
-        System.out.println("Hello, " + playerName);
+        System.out.println("Hello, " + playerName + "!");
     }
 
     public static int generateRandomNumber() {
