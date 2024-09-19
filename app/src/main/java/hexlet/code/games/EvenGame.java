@@ -7,6 +7,8 @@ import static hexlet.code.Engine.*;
 
 public class EvenGame {
 
+    private static int questionNumber;
+
     public static void evenGameStart() {
         greeting();
         System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
@@ -15,22 +17,16 @@ public class EvenGame {
 
     private static void evenGameLogic() {
         while (countCorrectAnswers < 3) {
-            var questionNumber = generateRandomNumber();
-            gameRound(generateQuestion(questionNumber));
-            if (isCorrectAnswer(rightAnswer(questionNumber), playerAnswer)) {
-                System.out.println("Correct!");
-                countCorrectAnswers++;
-            } else {
-                break;
-            }
+            gameRounds(generateQuestion(), rightAnswer());
         }
-        playerWonMessage();
     }
-    private static String generateQuestion(int questionNumber) {
+
+    private static String generateQuestion() {
+        questionNumber = generateRandomNumber();
         return String.valueOf(questionNumber);
     }
 
-    private static String rightAnswer(int questionNumber) {
+    private static String rightAnswer() {
         return questionNumber % 2 == 0 ? "yes" : "no";
     }
 }
