@@ -46,7 +46,7 @@ public class Engine {
 
     public static int generateRandomNumber(int maxBound) {
         Random random = new Random();
-        return random.nextInt(1, maxBound);
+        return random.nextInt(maxBound);
     }
 
     public static boolean isCorrectAnswer(String rightAnswer) {

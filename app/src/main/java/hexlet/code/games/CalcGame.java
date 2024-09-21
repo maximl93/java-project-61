@@ -9,7 +9,7 @@ public class CalcGame {
     private static int operand1;
     private static int operand2;
     private static String operator;
-    private static final int BOUND_TO_CREATE_OPERATOR = 4;
+    private static final int BOUND_TO_CREATE_OPERATOR = 3;
     private static final String GAME_RULE = "What is the result of the expression?";
 
     public static void gameStart() {
@@ -42,15 +42,7 @@ public class CalcGame {
     }
 
     private static String generateOperator() {
-        Random random = new Random();
-        var randomOperator = random.nextInt(1, BOUND_TO_CREATE_OPERATOR);
-        switch (randomOperator) {
-            case 1:
-                return "+";
-            case 2:
-                return "-";
-            default:
-                return "*";
-        }
+        String[] operators = {"+", "-", "*"};
+        return operators[Engine.generateRandomNumber(BOUND_TO_CREATE_OPERATOR)];
     }
 }
