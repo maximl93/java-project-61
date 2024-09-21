@@ -24,7 +24,11 @@ public class GcdGame {
     }
 
     private static String correctAnswer() {
-        while (number1 != number2) {
+        if (number1 == 0) {
+            return String.valueOf(number2);
+        }
+
+        while (number2 != 0) {
             if (number1 > number2) {
                 number1 = number1 - number2;
             } else {
