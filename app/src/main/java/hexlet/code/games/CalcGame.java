@@ -1,7 +1,5 @@
 package hexlet.code.games;
 
-import java.util.Random;
-
 import hexlet.code.Engine;
 
 public class CalcGame {
