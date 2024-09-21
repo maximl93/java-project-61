@@ -1,52 +1,41 @@
 package hexlet.code.games;
 
-import java.util.Random;
-
-import static hexlet.code.Engine.greeting;
-import static hexlet.code.Engine.gameRounds;
-import static hexlet.code.Engine.getCountCorrectAnswers;
-import static hexlet.code.Engine.ROUNDS_NEED_TO_WIN;
-import static hexlet.code.Engine.generateRandomNumber;
+import hexlet.code.Engine;
 
 public class ProgressionGame {
 
     private static int missingNumber;
-    private static int missingNumberPosition;
-    private static int gap;
     private static final int SIZE_OF_PROGRESSION = 10;
+    private static final String GAME_RULE = "What number is missing in the progression?";
 
-    public static void progressionGameStart() {
-        greeting();
-        System.out.println("What number is missing in the progression?");
-        progressionGameLogic();
+    public static void gameStart() {
+        Engine.gameLogic(GAME_RULE, generateQuestionsAndAnswers());
     }
 
-    private static void progressionGameLogic() {
-        while (getCountCorrectAnswers() < ROUNDS_NEED_TO_WIN) {
-            gameRounds(generateQuestion(), rightAnswer());
-        }
-    }
-
-    private static String generateQuestion() {
-        Random random = new Random();
-        var progressionNumber = generateRandomNumber();
-        gap = generateRandomNumber();
-        missingNumberPosition = random.nextInt(1, SIZE_OF_PROGRESSION);
-        StringBuilder question = new StringBuilder();
-        for (int i = 0; i < SIZE_OF_PROGRESSION; i++) {
-            if (i == missingNumberPosition) {
-                question.append("..").append(" ");
-                missingNumber = progressionNumber;
-                progressionNumber += gap;
-            } else {
-                question.append(progressionNumber).append(" ");
-                progressionNumber += gap;
+    private static String[][] generateQuestionsAndAnswers() {
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_NEED_TO_WIN][Engine.QA_COUNT];
+        for (String[] oneRound : questionsAndAnswers) {
+            var progressionNumber = Engine.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+            var gap = Engine.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+            var missingNumberPosition = Engine.generateRandomNumber(SIZE_OF_PROGRESSION);
+            StringBuilder question = new StringBuilder();
+            for (int i = 0; i < SIZE_OF_PROGRESSION; i++) {
+                if (i == missingNumberPosition) {
+                    question.append("..").append(" ");
+                    missingNumber = progressionNumber;
+                    progressionNumber += gap;
+                } else {
+                    question.append(progressionNumber).append(" ");
+                    progressionNumber += gap;
+                }
             }
+            oneRound[0] = question.toString();
+            oneRound[1] = correctAnswer();
         }
-        return question.toString();
+        return questionsAndAnswers;
     }
 
-    private static String rightAnswer() {
+    private static String correctAnswer() {
         return String.valueOf(missingNumber);
     }
 }

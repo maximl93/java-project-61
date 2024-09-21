@@ -2,11 +2,7 @@ package hexlet.code.games;
 
 import java.util.Random;
 
-import static hexlet.code.Engine.greeting;
-import static hexlet.code.Engine.gameRounds;
-import static hexlet.code.Engine.getCountCorrectAnswers;
-import static hexlet.code.Engine.ROUNDS_NEED_TO_WIN;
-import static hexlet.code.Engine.generateRandomNumber;
+import hexlet.code.Engine;
 
 public class CalcGame {
 
@@ -14,16 +10,34 @@ public class CalcGame {
     private static int operand2;
     private static String operator;
     private static final int BOUND_TO_CREATE_OPERATOR = 4;
+    private static final String GAME_RULE = "What is the result of the expression?";
 
-    public static void calcGameStart() {
-        greeting();
-        System.out.println("What is the result of the expression?");
-        calcGameLogic();
+    public static void gameStart() {
+        Engine.gameLogic(GAME_RULE, generateQuestionsAndAnswers());
     }
 
-    private static void calcGameLogic() {
-        while (getCountCorrectAnswers() < ROUNDS_NEED_TO_WIN) {
-            gameRounds(generateQuestion(), rightAnswer());
+    private static String[][] generateQuestionsAndAnswers() {
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_NEED_TO_WIN][Engine.QA_COUNT];
+        for (String[] oneRound : questionsAndAnswers) {
+            operand1 = Engine.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+            operand2 = Engine.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+            operator = generateOperator();
+            oneRound[0] = operand1 + " " + operator + " " + operand2;
+            oneRound[1] = correctAnswer();
+        }
+        return questionsAndAnswers;
+    }
+
+    private static String correctAnswer() {
+        switch (operator) {
+            case "+":
+                return String.valueOf(Math.addExact(operand1, operand2));
+            case "-":
+                return String.valueOf(Math.subtractExact(operand1, operand2));
+            case "*":
+                return String.valueOf(Math.multiplyExact(operand1, operand2));
+            default:
+                return String.valueOf(0);
         }
     }
 
@@ -37,26 +51,6 @@ public class CalcGame {
                 return "-";
             default:
                 return "*";
-        }
-    }
-
-    private static String generateQuestion() {
-        operand1 = generateRandomNumber();
-        operand2 = generateRandomNumber();
-        operator = generateOperator();
-        return operand1 + " " + operator + " " + operand2;
-    }
-
-    private static String rightAnswer() {
-        switch (operator) {
-            case "+":
-                return String.valueOf(Math.addExact(operand1, operand2));
-            case "-":
-                return String.valueOf(Math.subtractExact(operand1, operand2));
-            case "*":
-                return String.valueOf(Math.multiplyExact(operand1, operand2));
-            default:
-                return String.valueOf(0);
         }
     }
 }

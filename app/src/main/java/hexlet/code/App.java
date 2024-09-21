@@ -1,10 +1,12 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.CalcGame;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.GcdGame;
+import hexlet.code.games.PrimeGame;
+import hexlet.code.games.ProgressionGame;
 
 import java.util.Scanner;
-
-import static hexlet.code.Engine.greeting;
 
 public class App {
     public static void main(String[] args) {
@@ -24,7 +26,7 @@ public class App {
 
         switch (playerChoice) {
             case "1":
-                greeting();
+                Cli.greeting();
                 break;
             case "2":
                 EvenGame.gameStart();

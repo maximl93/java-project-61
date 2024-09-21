@@ -2,34 +2,29 @@ package hexlet.code.games;
 
 import java.math.BigInteger;
 
-import static hexlet.code.Engine.greeting;
-import static hexlet.code.Engine.gameRounds;
-import static hexlet.code.Engine.getCountCorrectAnswers;
-import static hexlet.code.Engine.ROUNDS_NEED_TO_WIN;
-import static hexlet.code.Engine.generateRandomNumber;
+import hexlet.code.Engine;
+
 
 public class PrimeGame {
 
     private static int questionNumber;
+    private static final String GAME_RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
 
-    public static void primeGameStart() {
-        greeting();
-        System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
-        primeGameLogic();
+    public static void gameStart() {
+        Engine.gameLogic(GAME_RULE, generateQuestionsAndAnswers());
     }
 
-    private static void primeGameLogic() {
-        while (getCountCorrectAnswers() < ROUNDS_NEED_TO_WIN) {
-            gameRounds(generateQuestion(), rightAnswer());
+    private static String[][] generateQuestionsAndAnswers() {
+        String[][] questionsAndAnswers = new String[Engine.ROUNDS_NEED_TO_WIN][Engine.QA_COUNT];
+        for (String[] oneRound : questionsAndAnswers) {
+            questionNumber = Engine.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+            oneRound[0] = String.valueOf(questionNumber);
+            oneRound[1] = correctAnswer();
         }
+        return questionsAndAnswers;
     }
 
-    private static String generateQuestion() {
-        questionNumber = generateRandomNumber();
-        return String.valueOf(questionNumber);
-    }
-
-    private static String rightAnswer() {
+    private static String correctAnswer() {
         BigInteger bigInteger = BigInteger.valueOf(questionNumber);
         if (bigInteger.isProbablePrime((int) Math.log(questionNumber)) && questionNumber != 1) {
             return "yes";
