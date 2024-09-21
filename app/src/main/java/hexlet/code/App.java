@@ -5,11 +5,6 @@ import hexlet.code.games.*;
 import java.util.Scanner;
 
 import static hexlet.code.Engine.greeting;
-import static hexlet.code.games.EvenGame.gameStart;
-import static hexlet.code.games.CalcGame.gameStart;
-import static hexlet.code.games.GcdGame.gameStart;
-import static hexlet.code.games.PrimeGame.gameStart;
-import static hexlet.code.games.ProgressionGame.gameStart;
 
 public class App {
     public static void main(String[] args) {
