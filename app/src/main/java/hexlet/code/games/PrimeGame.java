@@ -26,7 +26,7 @@ public class PrimeGame {
 
     private static String correctAnswer() {
         BigInteger bigInteger = BigInteger.valueOf(questionNumber);
-        if (bigInteger.isProbablePrime((int) Math.log(questionNumber)) && questionNumber != 1) {
+        if (bigInteger.isProbablePrime((int) Math.log(questionNumber)) && questionNumber != 1 && questionNumber != 0) {
             return "yes";
         } else {
             return "no";
