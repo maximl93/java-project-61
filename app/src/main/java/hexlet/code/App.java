@@ -1,13 +1,15 @@
 package hexlet.code;
 
+import hexlet.code.games.*;
+
 import java.util.Scanner;
 
 import static hexlet.code.Engine.greeting;
-import static hexlet.code.games.EvenGame.evenGameStart;
-import static hexlet.code.games.CalcGame.calcGameStart;
-import static hexlet.code.games.GcdGame.nodGameStart;
-import static hexlet.code.games.PrimeGame.primeGameStart;
-import static hexlet.code.games.ProgressionGame.progressionGameStart;
+import static hexlet.code.games.EvenGame.gameStart;
+import static hexlet.code.games.CalcGame.gameStart;
+import static hexlet.code.games.GcdGame.gameStart;
+import static hexlet.code.games.PrimeGame.gameStart;
+import static hexlet.code.games.ProgressionGame.gameStart;
 
 public class App {
     public static void main(String[] args) {
@@ -30,19 +32,19 @@ public class App {
                 greeting();
                 break;
             case "2":
-                evenGameStart();
+                EvenGame.gameStart();
                 break;
             case "3":
-                calcGameStart();
+                CalcGame.gameStart();
                 break;
             case "4":
-                nodGameStart();
+                GcdGame.gameStart();
                 break;
             case "5":
-                progressionGameStart();
+                ProgressionGame.gameStart();
                 break;
             case "6":
-                primeGameStart();
+                PrimeGame.gameStart();
                 break;
             default:
                 break;
