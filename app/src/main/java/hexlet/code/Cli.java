@@ -8,6 +8,6 @@ public class Cli {
         System.out.print("\nWelcome to the Brain Games!"
                         + "\nMay I have your name? ");
         var playerName = scanner.nextLine();
-        System.out.println("Hello, " + playerName);
+        System.out.println("Hello, " + playerName + "!");
     }
 }
