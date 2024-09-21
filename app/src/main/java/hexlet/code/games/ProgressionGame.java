@@ -18,21 +18,25 @@ public class ProgressionGame {
             var progressionNumber = Engine.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
             var gap = Engine.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
             var missingNumberPosition = Engine.generateRandomNumber(SIZE_OF_PROGRESSION);
-            StringBuilder question = new StringBuilder();
-            for (int i = 0; i < SIZE_OF_PROGRESSION; i++) {
-                if (i == missingNumberPosition) {
-                    question.append("..").append(" ");
-                    missingNumber = progressionNumber;
-                    progressionNumber += gap;
-                } else {
-                    question.append(progressionNumber).append(" ");
-                    progressionNumber += gap;
-                }
-            }
-            oneRound[0] = question.toString();
+            oneRound[0] = generateProgression(progressionNumber, gap, missingNumberPosition);
             oneRound[1] = correctAnswer();
         }
         return questionsAndAnswers;
+    }
+
+    private static String generateProgression(int progressionNumber, int gap, int missingNumberPosition) {
+        StringBuilder question = new StringBuilder();
+        for (int i = 0; i < SIZE_OF_PROGRESSION; i++) {
+            if (i == missingNumberPosition) {
+                question.append("..").append(" ");
+                missingNumber = progressionNumber;
+                progressionNumber += gap;
+            } else {
+                question.append(progressionNumber).append(" ");
+                progressionNumber += gap;
+            }
+        }
+        return question.toString();
     }
 
     private static String correctAnswer() {
