@@ -21,7 +21,7 @@ If the given answer is wrong the game will end.
   - Finding the missing number in a Progression.
     [![asciicast](https://asciinema.org/a/OWlIO6NAQM0lujQAlEIQmeish.svg)](https://asciinema.org/a/OWlIO6NAQM0lujQAlEIQmeish)
   
-  - Determination whether a given number in prime or not.
+  - Determination whether a given number is prime or not.
     [![asciicast](https://asciinema.org/a/OWlIO6NAQM0lujQAlEIQmeish.svg)](https://asciinema.org/a/OWlIO6NAQM0lujQAlEIQmeish)
 
 ### Build
