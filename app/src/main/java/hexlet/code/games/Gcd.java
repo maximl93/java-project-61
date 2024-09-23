@@ -5,8 +5,8 @@ import hexlet.code.Util;
 
 public class Gcd {
 
-    private static int number1;
-    private static int number2;
+    private static int firstNumber;
+    private static int secondNumber;
     private static final String GAME_RULE = "Find the greatest common divisor of given numbers.";
 
     public static void gameStart() {
@@ -17,8 +17,8 @@ public class Gcd {
         String[][] questionsAndAnswers = new String[Engine.ROUNDS_NEED_TO_WIN][Engine.QA_COUNT];
         for (String[] oneRound : questionsAndAnswers) {
             generateRoundData();
-            oneRound[0] = (number1) + " " + (number2);
-            oneRound[1] = correctAnswer(number1, number2);
+            oneRound[0] = (firstNumber) + " " + (secondNumber);
+            oneRound[1] = correctAnswer(firstNumber, secondNumber);
         }
         return questionsAndAnswers;
     }
@@ -28,7 +28,7 @@ public class Gcd {
     }
 
     private static void generateRoundData() {
-        number1 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-        number2 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+        firstNumber = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+        secondNumber = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
     }
 }

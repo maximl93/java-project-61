@@ -20,13 +20,13 @@ public class Progression {
         String[][] questionsAndAnswers = new String[Engine.ROUNDS_NEED_TO_WIN][Engine.QA_COUNT];
         for (String[] oneRound : questionsAndAnswers) {
             generateRoundData();
-            oneRound[0] = generateProgression(progressionNumber, gap, missingNumberPosition);
+            oneRound[0] = generateProgression();
             oneRound[1] = correctAnswer();
         }
         return questionsAndAnswers;
     }
 
-    private static String generateProgression(int progressionNumber, int gap, int missingNumberPosition) {
+    private static String generateProgression() {
         String[] progression = new String[SIZE_OF_PROGRESSION];
         for (int i = 0; i < SIZE_OF_PROGRESSION; i++) {
             progression[i] = String.valueOf(progressionNumber);
