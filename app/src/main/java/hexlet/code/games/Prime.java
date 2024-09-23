@@ -33,7 +33,7 @@ public class Prime {
         }
     }
 
-    private static void generateRoundData(String[] oneRound) {
+    private static void generateRoundData() {
         primeNumber = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
     }
 }
