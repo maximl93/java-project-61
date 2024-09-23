@@ -44,11 +44,6 @@ public class Engine {
         }
     }
 
-    public static int generateRandomNumber(int maxBound) {
-        Random random = new Random();
-        return random.nextInt(maxBound);
-    }
-
     public static boolean isCorrectAnswer(String rightAnswer) {
         return rightAnswer.equals(playerAnswer);
     }
