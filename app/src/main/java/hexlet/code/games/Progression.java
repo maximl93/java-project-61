@@ -22,18 +22,14 @@ public class Progression {
     }
 
     private static String generateProgression(int progressionNumber, int gap, int missingNumberPosition) {
-        StringBuilder question = new StringBuilder();
+        String[] progression = new String[SIZE_OF_PROGRESSION];
         for (int i = 0; i < SIZE_OF_PROGRESSION; i++) {
-            if (i == missingNumberPosition) {
-                question.append("..").append(" ");
-                missingNumber = progressionNumber;
-                progressionNumber += gap;
-            } else {
-                question.append(progressionNumber).append(" ");
-                progressionNumber += gap;
-            }
+            progression[i] = String.valueOf(progressionNumber);
+            progressionNumber += gap;
         }
-        return question.toString();
+        missingNumber = Integer.parseInt(progression[missingNumberPosition]);
+        progression[missingNumberPosition] = "..";
+        return String.join(" ", progression);
     }
 
     private static String correctAnswer() {
