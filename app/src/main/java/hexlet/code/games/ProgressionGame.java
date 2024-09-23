@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Util;
 
 public class ProgressionGame {
 
@@ -15,9 +16,9 @@ public class ProgressionGame {
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.ROUNDS_NEED_TO_WIN][Engine.QA_COUNT];
         for (String[] oneRound : questionsAndAnswers) {
-            var progressionNumber = Engine.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-            var gap = Engine.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-            var missingNumberPosition = Engine.generateRandomNumber(SIZE_OF_PROGRESSION);
+            var progressionNumber = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+            var gap = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+            var missingNumberPosition = Util.generateRandomNumber(SIZE_OF_PROGRESSION);
             oneRound[0] = generateProgression(progressionNumber, gap, missingNumberPosition);
             oneRound[1] = correctAnswer();
         }

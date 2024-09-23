@@ -2,6 +2,7 @@ package hexlet.code.games;
 
 
 import hexlet.code.Engine;
+import hexlet.code.Util;
 
 
 public class EvenGame {
@@ -16,7 +17,7 @@ public class EvenGame {
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.ROUNDS_NEED_TO_WIN][Engine.QA_COUNT];
         for (String[] oneRound : questionsAndAnswers) {
-            questionNumber = Engine.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+            questionNumber = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
             oneRound[0] = String.valueOf(questionNumber);
             oneRound[1] = correctAnswer();
         }

@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Util;
 
 public class CalcGame {
 
@@ -17,8 +18,8 @@ public class CalcGame {
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.ROUNDS_NEED_TO_WIN][Engine.QA_COUNT];
         for (String[] oneRound : questionsAndAnswers) {
-            operand1 = Engine.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-            operand2 = Engine.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+            operand1 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+            operand2 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
             operator = generateOperator();
             oneRound[0] = operand1 + " " + operator + " " + operand2;
             oneRound[1] = correctAnswer();
@@ -41,6 +42,6 @@ public class CalcGame {
 
     private static String generateOperator() {
         String[] operators = {"+", "-", "*"};
-        return operators[Engine.generateRandomNumber(BOUND_TO_CREATE_OPERATOR)];
+        return operators[Util.generateRandomNumber(BOUND_TO_CREATE_OPERATOR)];
     }
 }

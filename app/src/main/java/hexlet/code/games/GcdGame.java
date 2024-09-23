@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Util;
 
 public class GcdGame {
 
@@ -15,8 +16,8 @@ public class GcdGame {
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.ROUNDS_NEED_TO_WIN][Engine.QA_COUNT];
         for (String[] oneRound : questionsAndAnswers) {
-            number1 = Engine.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-            number2 = Engine.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+            number1 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+            number2 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
             oneRound[0] = (number1) + " " + (number2);
             oneRound[1] = correctAnswer();
         }
