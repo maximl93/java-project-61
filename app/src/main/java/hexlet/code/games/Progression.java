@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Util;
 
-public class ProgressionGame {
+public class Progression {
 
     private static int missingNumber;
     private static final int SIZE_OF_PROGRESSION = 10;

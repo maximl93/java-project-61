@@ -5,7 +5,7 @@ import java.math.BigInteger;
 import hexlet.code.Engine;
 import hexlet.code.Util;
 
-public class PrimeGame {
+public class Prime {
 
     private static int questionNumber;
     private static final String GAME_RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";

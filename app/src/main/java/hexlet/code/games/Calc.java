@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Util;
 
-public class CalcGame {
+public class Calc {
 
     private static int operand1;
     private static int operand2;

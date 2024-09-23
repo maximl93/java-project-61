@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Util;
 
-public class GcdGame {
+public class Gcd {
 
     private static int number1;
     private static int number2;

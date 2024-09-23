@@ -5,7 +5,7 @@ import hexlet.code.Engine;
 import hexlet.code.Util;
 
 
-public class EvenGame {
+public class Even {
 
     private static int questionNumber;
     private static final String GAME_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
