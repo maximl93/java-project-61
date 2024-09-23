@@ -8,8 +8,9 @@ public class CalcGame {
     private static int operand1;
     private static int operand2;
     private static String operator;
-    private static final int BOUND_TO_CREATE_OPERATOR = 3;
+    private static final int BOUND_TO_GENERATE_OPERATOR = 3;
     private static final String GAME_RULE = "What is the result of the expression?";
+    private static final String[] OPERATORS = {"+", "-", "*"};
 
     public static void gameStart() {
         Engine.gameLogic(GAME_RULE, generateQuestionsAndAnswers());
@@ -20,7 +21,7 @@ public class CalcGame {
         for (String[] oneRound : questionsAndAnswers) {
             operand1 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
             operand2 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-            operator = generateOperator();
+            operator = OPERATORS[Util.generateRandomNumber(BOUND_TO_GENERATE_OPERATOR)];
             oneRound[0] = operand1 + " " + operator + " " + operand2;
             oneRound[1] = correctAnswer();
         }
@@ -38,10 +39,5 @@ public class CalcGame {
             default:
                 return String.valueOf(0);
         }
-    }
-
-    private static String generateOperator() {
-        String[] operators = {"+", "-", "*"};
-        return operators[Util.generateRandomNumber(BOUND_TO_CREATE_OPERATOR)];
     }
 }
