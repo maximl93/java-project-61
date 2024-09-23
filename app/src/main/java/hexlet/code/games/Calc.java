@@ -19,11 +19,7 @@ public class Calc {
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.ROUNDS_NEED_TO_WIN][Engine.QA_COUNT];
         for (String[] oneRound : questionsAndAnswers) {
-            operand1 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-            operand2 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-            operator = OPERATORS[Util.generateRandomNumber(BOUND_TO_GENERATE_OPERATOR)];
-            oneRound[0] = operand1 + " " + operator + " " + operand2;
-            oneRound[1] = correctAnswer();
+            generateRoundData(oneRound);
         }
         return questionsAndAnswers;
     }
@@ -39,5 +35,13 @@ public class Calc {
             default:
                 return String.valueOf(0);
         }
+    }
+
+    private static void generateRoundData(String[] oneRound) {
+        operand1 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+        operand2 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+        operator = OPERATORS[Util.generateRandomNumber(BOUND_TO_GENERATE_OPERATOR)];
+        oneRound[0] = operand1 + " " + operator + " " + operand2;
+        oneRound[1] = correctAnswer();
     }
 }

@@ -17,9 +17,7 @@ public class Prime {
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.ROUNDS_NEED_TO_WIN][Engine.QA_COUNT];
         for (String[] oneRound : questionsAndAnswers) {
-            questionNumber = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-            oneRound[0] = String.valueOf(questionNumber);
-            oneRound[1] = correctAnswer();
+            generateRoundData(oneRound);
         }
         return questionsAndAnswers;
     }
@@ -31,5 +29,11 @@ public class Prime {
         } else {
             return "no";
         }
+    }
+
+    private static void generateRoundData(String[] oneRound) {
+        questionNumber = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+        oneRound[0] = String.valueOf(questionNumber);
+        oneRound[1] = correctAnswer();
     }
 }

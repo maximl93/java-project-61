@@ -16,10 +16,7 @@ public class Gcd {
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.ROUNDS_NEED_TO_WIN][Engine.QA_COUNT];
         for (String[] oneRound : questionsAndAnswers) {
-            number1 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-            number2 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-            oneRound[0] = (number1) + " " + (number2);
-            oneRound[1] = correctAnswer();
+            generateRoundData(oneRound);
         }
         return questionsAndAnswers;
     }
@@ -37,5 +34,12 @@ public class Gcd {
             }
         }
         return String.valueOf(number1);
+    }
+
+    private static void generateRoundData(String[] oneRound) {
+        number1 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+        number2 = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+        oneRound[0] = (number1) + " " + (number2);
+        oneRound[1] = correctAnswer();
     }
 }

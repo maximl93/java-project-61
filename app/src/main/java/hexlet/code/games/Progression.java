@@ -16,11 +16,7 @@ public class Progression {
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.ROUNDS_NEED_TO_WIN][Engine.QA_COUNT];
         for (String[] oneRound : questionsAndAnswers) {
-            var progressionNumber = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-            var gap = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-            var missingNumberPosition = Util.generateRandomNumber(SIZE_OF_PROGRESSION);
-            oneRound[0] = generateProgression(progressionNumber, gap, missingNumberPosition);
-            oneRound[1] = correctAnswer();
+            generateRoundData(oneRound);
         }
         return questionsAndAnswers;
     }
@@ -42,5 +38,13 @@ public class Progression {
 
     private static String correctAnswer() {
         return String.valueOf(missingNumber);
+    }
+
+    private static void generateRoundData(String[] oneRound) {
+        var progressionNumber = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+        var gap = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+        var missingNumberPosition = Util.generateRandomNumber(SIZE_OF_PROGRESSION);
+        oneRound[0] = generateProgression(progressionNumber, gap, missingNumberPosition);
+        oneRound[1] = correctAnswer();
     }
 }
