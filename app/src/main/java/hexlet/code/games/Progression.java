@@ -5,6 +5,9 @@ import hexlet.code.Util;
 
 public class Progression {
 
+    private static int progressionNumber;
+    private static int gap;
+    private static int missingNumberPosition;
     private static int missingNumber;
     private static final int SIZE_OF_PROGRESSION = 10;
     private static final String GAME_RULE = "What number is missing in the progression?";
@@ -16,7 +19,9 @@ public class Progression {
     private static String[][] generateQuestionsAndAnswers() {
         String[][] questionsAndAnswers = new String[Engine.ROUNDS_NEED_TO_WIN][Engine.QA_COUNT];
         for (String[] oneRound : questionsAndAnswers) {
-            generateRoundData(oneRound);
+            generateRoundData();
+            oneRound[0] = generateProgression(progressionNumber, gap, missingNumberPosition);
+            oneRound[1] = correctAnswer();
         }
         return questionsAndAnswers;
     }
@@ -36,11 +41,9 @@ public class Progression {
         return String.valueOf(missingNumber);
     }
 
-    private static void generateRoundData(String[] oneRound) {
-        var progressionNumber = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-        var gap = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
-        var missingNumberPosition = Util.generateRandomNumber(SIZE_OF_PROGRESSION);
-        oneRound[0] = generateProgression(progressionNumber, gap, missingNumberPosition);
-        oneRound[1] = correctAnswer();
+    private static void generateRoundData() {
+        progressionNumber = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+        gap = Util.generateRandomNumber(Engine.BOUND_TO_GENERATE_NUMBERS);
+        missingNumberPosition = Util.generateRandomNumber(SIZE_OF_PROGRESSION);
     }
 }
