@@ -10,10 +10,10 @@ If the given answer is wrong the game will end.
 ### Demonstration how games work:
 
   - Determination whether a given number is even or not.
-    [![asciicast](https://asciinema.org/a/foOvIIXfozfxvvsGBMUOs0pOV.svg)](https://asciinema.org/a/foOvIIXfozfxvvsGBMUOs0pOV)
-
+    [![asciicast](https://asciinema.org/a/FLGIx0RaYHRbMxg9O16CgOIaW.svg)](https://asciinema.org/a/FLGIx0RaYHRbMxg9O16CgOIaW)
+  
   - Calculator game.
-    [![asciicast](https://asciinema.org/a/pkQiAP1RNjZm7QFPkffy9CTTO.svg)](https://asciinema.org/a/pkQiAP1RNjZm7QFPkffy9CTTO)
+    [![asciicast](https://asciinema.org/a/BKjFAu1mTaCFwtwsclmadfLHZ.svg)](https://asciinema.org/a/BKjFAu1mTaCFwtwsclmadfLHZ)
   
   - Findig the greatest common divisor (GSD).
     [![asciicast](https://asciinema.org/a/4XShQR9krofhNpa0oyQxuKDnH.svg)](https://asciinema.org/a/4XShQR9krofhNpa0oyQxuKDnH)
